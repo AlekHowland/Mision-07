@@ -1,0 +1,88 @@
+#encoding: UTF-8
+#Autor: Alek Howland, A01747765
+#Descripción: Uso de ciclo while para usos múltiples
+
+
+#Función que despliega menu de selección
+def leerOpcionMenu():
+    print("")
+    print("Misión 07. Ciclos while")
+    print("Autor: Alek Fernando Howland Aguilar")
+    print("Matrícula: A01747765")
+    print("1. Calcular divisiones")
+    print("2. Encontrar el mayor")
+    print("3. Salir")
+    opcion = int(input("Teclea tu opción: "))
+    return opcion
+
+
+#Función que calcula división usando restas
+def dividir(dividendo, divisor):
+    resultado = 0
+    dividendo1 = dividendo
+
+    while dividendo1 >= divisor and divisor != 0:   #Ciclo while que resta divisor al dividendo
+        dividendo1 = dividendo1 - divisor
+        resultado += 1
+
+    if divisor > dividendo and divisor != 0:
+        residuo = dividendo - (resultado * divisor)
+        resultado = 0
+        residuo = dividendo
+
+    if divisor != 0:
+        residuo = dividendo - (resultado * divisor)
+        print(dividendo, "/", divisor, "=", resultado, ", sobra", residuo)
+    else:
+        print("Datos invalidos")
+
+
+#Función que busca un número mayor en varios números
+def encontrarMayor():
+    print("Teclea una seria de números para encontrar al mayor.")
+    contador = 0
+    numero = int(input("Teclea un número [-1 para salir]: "))
+    if numero == -1:
+        print("No hay valor mayor")
+    else:
+
+        while numero != -1:         #Ciclo while que encuentra el mayor del conjunto de números
+            numero = numero
+            numero1 = int(input("Teclea un número [-1 para salir]: "))
+
+            if numero1 == -1:
+                print("El mayor es: ", numero)
+                numero = -1
+
+            else:
+                if numero >= numero1:
+                    numero = numero
+                else:
+                    numero = numero1
+
+
+#Función principal
+def main():
+    opcion = leerOpcionMenu()
+    if opcion == 1 or opcion == 2 or opcion == 3:
+        while opcion != 3:                          #Ciclo while para uso de menu de selección
+            if opcion == 1:
+                print("")
+                print("Calculando divisiones")
+                dividendo = int(input("Dividendo: "))
+                divisor = int(input("Divisor: "))
+                dividir(dividendo, divisor)
+                opcion = leerOpcionMenu()
+            elif opcion == 2:
+                print("")
+                encontrarMayor()
+                opcion = leerOpcionMenu()
+            elif opcion != 1 or opcion or opcion != 2 or opcion != 3:
+                print("ERROR, teclea 1, 2 o 3")
+                opcion = leerOpcionMenu()
+        print("")
+        print("Gracias por usar este programa, regresa pronto.")
+
+
+#Llamada a función principal
+main()
